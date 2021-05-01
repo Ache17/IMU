@@ -15,6 +15,15 @@ void setup()
     Serial.println("Failed to communicate with LSM9DS1.");
     while (1);
   }
+
+  imu.setGyroScale(245);  // 245, 500 or 2000
+  //imu.setGyroODR(100);
+
+  imu.setAccelScale(2);   // 2, 4, 6, 8, or 16
+  //imu.setAccelODR(100);
+  
+  imu.setMagScale(4);     // 4, 8, 12 or 16
+  //imu.setMagODR(100);
 }
 
 void loop()
@@ -48,6 +57,4 @@ void loop()
     Serial.print(imu.my);
     Serial.print(" ");
     Serial.println(imu.mz);
-
-    delay(1000);
 }
